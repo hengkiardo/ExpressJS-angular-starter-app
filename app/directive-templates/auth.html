@@ -1,0 +1,29 @@
+<div>
+	<ul ng-show="user.loggedIn" class="nav">
+		<li>
+			<a href="#/create" >Create</a>
+		</li>
+	</ul>
+	<ul class="nav pull-right">
+		<li ng-hide="user.loggedIn" class="active">
+			<a ng-click="toggleLogin()" class="pull-right" href="" ng-model="auth.showLogin">Login</a>
+		</li>
+		<li ng-show="user.loggedIn" class="active">
+			<a ng-click="logout()" class="pull-right" href="#">Logout</a>
+		</li>
+	</ul>	
+	<div modal="auth.showLogin" close="auth.showLogin = false" options="{ backdropFade:true, dialogFade:true}">
+		<div class="modal-header">
+			<button type="button" class="close" ng-click="auth.showLogin = false">&times;</button>
+			<h4>Login</h4>
+		</div>
+		<div class="modal-body">
+			<div ng-show="auth.invalidLogin==true" class="alert alert-danger fade in">Invalid Username / Password</div>
+			<form  ng-submit="authenticate()" class="form-inline">
+				<input type="text" ng-model="user.username" name="username" class="span2" placeholder="username" />
+				<input type="password" ng-model="user.password" name="password"  placeholder="password" class="span2"/>			
+				<button type="submit" class="btn btn-primary pull-right" data-toggle="button">Sign In</button>
+			</form>
+		</div>
+	</div>
+</div>
