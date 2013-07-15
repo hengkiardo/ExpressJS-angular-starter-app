@@ -51,7 +51,7 @@ var loggedIn = function (req, res) {
 passport.use(new LocalStrategy(authenticate));
 
 // all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 4040);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 app.engine('html', require('ejs').renderFile);
