@@ -24,7 +24,7 @@ passport.deserializeUser(function (user, done) {
 });
 
 var authenticate = function (username, password, done) {
-    if (username === "Chris" && password === "qwerty") {
+    if (username === "hengkiardo" && password === "123123") {
         return done(null, {'_id': 'mongoid'});
     }
 
@@ -43,6 +43,8 @@ var logout = function (req, res) {
     req.logout();
     res.send(200, "Logged out!");
 };
+
+// console.log(test);
 
 var loggedIn = function (req, res) {
     return (req.isAuthenticated()) ? authSuccess(req, res) : res.send(401, {loggedIn: false});
